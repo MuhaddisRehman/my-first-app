@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import MyButton from './components/MyButton';
+import ProfileCard from './components/ProfileCard';
+import pfp from "./Assets/profileImg/Sufi.png"
+
+
+const myAge = 20;
+console.log(myAge);
 
 function App() {
+  const [Age, setAge] = useState(myAge);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h2 style={{color:"red"}}>
+        {Age}
+      </h2>
+      <button onClick={()=>setAge(Age-1)}>-</button>
+      <button onClick={()=>setAge(Age+1)}>+</button>
+      
+      <MyButton title="Buy Now!" color="red"/>
+      <MyButton title="Buy Now!" color="Green"/>
+      <ProfileCard img={pfp}  name="Muhaddis Rehman" title="Frontend React Developer" description="I am a Frontend React Web Developer currently working at SufiTravels. I love to code 24/7." />
+      <ProfileCard img={pfp}  name="Arslan" title="Accountant and Manager" description="I am an Accountant and a Manager at SufiTravels."/>
+
+    </>
   );
 }
 
